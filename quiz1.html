@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Page</title>
+<style>
+    body {
+        font-family: Helvetica, serif;
+        background-color: #d6cebe;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .container {
+        max-width: 800px; /* Adjusted width for better readability */
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+        color: #333;
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif, serif;
+    }
+    
+    form {
+        margin-top: 20px;
+        font-family: 'Times New Roman', Times, serif, serif;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 10px;
+        color: #333;
+    }
+    
+    .input-container {
+        margin-bottom: 20px;
+    }
+    
+    .input-container label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .input-container input[type="radio"] {
+        display: none;
+    }
+    
+    .input-container input[type="radio"] + label {
+        display: block;
+        padding: 10px 20px;
+        background-color: #cfcfc2;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .input-container input[type="radio"]:checked + label {
+        background-color: #7a7a6f;
+        color: white;
+    }
+    
+    .input-container input[type="checkbox"] {
+        display: none;
+    }
+    
+    .input-container input[type="checkbox"] + label {
+        display: block;
+        padding: 10px 20px;
+        background-color: #cfcfc2;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .input-container input[type="checkbox"]:checked + label {
+        background-color: #7a7a6f;
+        color: white;
+    }
+    
+    
+    button {
+        background-color: #63615c;
+        color: white;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        font-family: 'Times New Roman', Times, serif, serif;
+    }
+    
+    button:hover {
+        background-color: #45a049;
+    }
+
+    #stylish-name {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+    
+        letter-spacing: 2px;
+        cursor: pointer;
+        text-decoration: none; /* Remove underline */
+    }
+    
+    </style>
+</head>
+<body>
+<a id="stylish-name" href="index.html">EunoiaSpectrum</a>
+<div class="container">
+    <h1>Please take up the Assessment!</h1>
+    <form action="/predict1" method="post">
+        <div class="input-container">
+    <label>1. How often do you feel overwhelmed by daily tasks?</label>
+    <div>
+        <input type="radio" id="rarely_overwhelmed" name="task_overwhelm" value="rarely">
+        <label for="rarely_overwhelmed">Rarely, I feel.</label>
+    </div>
+    <div>
+        <input type="radio" id="sometimes_overwhelmed" name="task_overwhelm" value="sometimes">
+        <label for="sometimes_overwhelmed">Sometimes, I feel.</label>
+    </div>
+    <div>
+        <input type="radio" id="often_overwhelmed" name="task_overwhelm" value="often">
+        <label for="often_overwhelmed">Often, I feel.</label>
+    </div>
+    <div>
+        <input type="radio" id="always_overwhelmed" name="task_overwhelm" value="always">
+        <label for="always_overwhelmed">Always, I feel.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>2. How frequently do you experience racing thoughts or difficulty concentrating?</label>
+    <div>
+        <input type="radio" id="never_racing_thoughts" name="racing_thoughts" value="never">
+        <label for="never_racing_thoughts">Never, I experience.</label>
+    </div>
+    <div>
+        <input type="radio" id="occasionally_racing_thoughts" name="racing_thoughts" value="occasionally">
+        <label for="occasionally_racing_thoughts">Occasionally, I experience.</label>
+    </div>
+    <div>
+        <input type="radio" id="frequently_racing_thoughts" name="racing_thoughts" value="frequently">
+        <label for="frequently_racing_thoughts">Frequently, I experience.</label>
+    </div>
+    <div>
+        <input type="radio" id="constantly_racing_thoughts" name="racing_thoughts" value="constantly">
+        <label for="constantly_racing_thoughts">Constantly, I experience.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>3. How often do you experience physical symptoms like headaches, muscle tension, or stomach upset?</label>
+    <div>
+        <input type="radio" id="rarely_physical_symptoms" name="physical_symptoms" value="rarely">
+        <label for="rarely_physical_symptoms">Rarely or Never.</label>
+    </div>
+    <div>
+        <input type="radio" id="occasionally_physical_symptoms" name="physical_symptoms" value="occasionally">
+        <label for="occasionally_physical_symptoms">Occasionally, I experience the symptoms.</label>
+    </div>
+    <div>
+        <input type="radio" id="frequently_physical_symptoms" name="physical_symptoms" value="frequently">
+        <label for="frequently_physical_symptoms">Frequently, I experience the symptoms.</label>
+    </div>
+    <div>
+        <input type="radio" id="constantly_physical_symptoms" name="physical_symptoms" value="constantly">
+        <label for="constantly_physical_symptoms">Constantly, I experience the symptoms.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>4. How often do you feel irritable or easily agitated?</label>
+    <div>
+        <input type="radio" id="rarely_irritable" name="irritability" value="rarely">
+        <label for="rarely_irritable">Rarely, I feel.</label>
+    </div>
+    <div>
+        <input type="radio" id="often_irritable" name="irritability" value="often">
+        <label for="often_irritable">Often, I feel.</label>
+    </div>
+    <div>
+        <input type="radio" id="sometimes_irritable" name="irritability" value="sometimes">
+        <label for="sometimes_irritable">Sometimes, I feel.</label>
+    </div>
+    <div>
+        <input type="radio" id="always_irritable" name="irritability" value="always">
+        <label for="always_irritable">Always, I feel.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>5. How frequently do you have trouble falling asleep or staying asleep due to worrying thoughts?</label>
+    <div>
+        <input type="radio" id="never_sleep_trouble" name="sleep_trouble" value="never">
+        <label for="never_sleep_trouble">Never.</label>
+    </div>
+    <div>
+        <input type="radio" id="occasionally_sleep_trouble" name="sleep_trouble" value="occasionally">
+        <label for="occasionally_sleep_trouble">Occasionally, I have trouble.</label>
+    </div>
+    <div>
+        <input type="radio" id="frequently_sleep_trouble" name="sleep_trouble" value="frequently">
+        <label for="frequently_sleep_trouble">Frequently, I have trouble.</label>
+    </div>
+    <div>
+        <input type="radio" id="constantly_sleep_trouble" name="sleep_trouble" value="constantly">
+        <label for="constantly_sleep_trouble">Constantly, I have trouble.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>6. How often do you avoid social situations or activities?</label>
+    <div>
+        <input type="radio" id="rarely_avoid_social" name="social_avoidance" value="rarely">
+        <label for="rarely_avoid_social">Rarely or Never.</label>
+    </div>
+    <div>
+        <input type="radio" id="occasionally_avoid_social" name="social_avoidance" value="occasionally">
+        <label for="occasionally_avoid_social">Occasionally, I avoid.</label>
+    </div>
+    <div>
+        <input type="radio" id="frequently_avoid_social" name="social_avoidance" value="frequently">
+        <label for="frequently_avoid_social">Frequently, I avoid.</label>
+    </div>
+    <div>
+        <input type="radio" id="constantly_avoid_social" name="social_avoidance" value="constantly">
+        <label for="constantly_avoid_social">Constantly, I avoid.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>7. How often do you experience sudden feelings of panic or fear without an obvious cause?</label>
+    <div>
+        <input type="radio" id="never_panic" name="panic_fear" value="never">
+        <label for="never_panic">Never, I experience.</label>
+    </div>
+    <div>
+        <input type="radio" id="rarely_panic" name="panic_fear" value="rarely">
+        <label for="rarely_panic">Rarely, I experience.</label>
+    </div>
+    <div>
+        <input type="radio" id="sometimes_panic" name="panic_fear" value="sometimes">
+        <label for="sometimes_panic">Sometimes, I experience.</label>
+    </div>
+    <div>
+        <input type="radio" id="frequently_panic" name="panic_fear" value="frequently">
+        <label for="frequently_panic">Frequently, I experience.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>8. How frequently do you find it difficult to relax or unwind, even when you have free time?</label>
+    <div>
+        <input type="radio" id="rarely_difficult_relax" name="relax_difficulty" value="rarely">
+        <label for="rarely_difficult_relax">Rarely or Never.</label>
+    </div>
+    <div>
+        <input type="radio" id="occasionally_difficult_relax" name="relax_difficulty" value="occasionally">
+        <label for="occasionally_difficult_relax">Occasionally.</label>
+    </div>
+    <div>
+        <input type="radio" id="frequently_difficult_relax" name="relax_difficulty" value="frequently">
+        <label for="frequently_difficult_relax">Frequently.</label>
+    </div>
+</div>
+
+
+        
+        <button type="submit">Generate result.</button>
+    </form>
+</div>
+
+</body>
+</html>

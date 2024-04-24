@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Result</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #d6cebe;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: #fff4e0;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: #333;
+        text-align: center;
+      }
+
+      .result {
+        background-color: #f7c48d;
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 20px;
+      }
+
+      .input-label {
+        font-weight: bold;
+      }
+
+      .input-value {
+        margin-left: 10px;
+      }
+
+      .predicted-label {
+        text-align: center;
+        font-size: 20px;
+        margin-top: 20px;
+        background-color: #f7c48d;
+        margin-top: 20px;
+        padding: 10px;
+        border-radius: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Assessment Result</h1>
+
+      <div class="predicted-label">
+        <p>
+          Your predicted mental health status is:
+          <strong>{{ predicted_label }}</strong>
+        </p>
+      </div>
+
+      <div class="documentation">
+        {% if predicted_label == 'Positive' %}
+        <p>
+          Based on the mental health status predicted by the model, here are
+          some recommendations based of the result:
+        </p>
+        <ul>
+          <li>
+            Focus on maintaining your well-being and continue with healthy
+            habits.
+          </li>
+          <li>Engage in activities that bring you joy and fulfillment.</li>
+          <li>
+            Connect with friends and loved ones for support and social
+            interaction.
+          </li>
+        </ul>
+        {% elif predicted_label == 'Neutral' %}
+        <p>
+          Based on the mental health status predicted by the model, here are
+          some recommendations:
+        </p>
+        <ul>
+          <li>
+            Pay attention to your mental health and consider seeking support if
+            needed.
+          </li>
+          <li>
+            Practice mindfulness and relaxation techniques to reduce stress.
+          </li>
+          <li>
+            Engage in self-reflection to understand your emotions and thoughts
+            better.
+          </li>
+        </ul>
+        {% elif predicted_label=='Negative' %}
+        <p>
+          Based on the mental health status predicted by the model, here are
+          some recommendations:
+        </p>
+        <ul>
+          <li>
+            Take proactive steps to address any underlying issues affecting your
+            well-being.
+          </li>
+          <li>
+            Seek professional help or counseling if you're experiencing distress
+            or discomfort.
+          </li>
+          <li>
+            Practice self-care activities regularly to promote emotional
+            resilience.
+          </li>
+        </ul>
+        {%else%}
+        <p>
+          The information provided is irrelevant for the prediction of your
+          mental health status.
+        </p>
+        {% endif %}
+      </div>
+      
+  </body>
+</html>

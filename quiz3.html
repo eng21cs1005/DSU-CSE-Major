@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Page</title>
+<style>
+    body {
+        font-family: Helvetica, serif;
+        background-color: #d6cebe;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .container {
+        max-width: 800px; /* Adjusted width for better readability */
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+        color: #333;
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif, serif;
+    }
+    
+    form {
+        margin-top: 20px;
+        font-family: 'Times New Roman', Times, serif, serif;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 10px;
+        color: #333;
+    }
+    
+    .input-container {
+        margin-bottom: 20px;
+    }
+    
+    .input-container label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .input-container input[type="radio"] {
+        display: none;
+    }
+    
+    .input-container input[type="radio"] + label {
+        display: block;
+        padding: 10px 20px;
+        background-color: #cfcfc2;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .input-container input[type="radio"]:checked + label {
+        background-color: #7a7a6f;
+        color: white;
+    }
+    
+    .input-container input[type="checkbox"] {
+        display: none;
+    }
+    
+    .input-container input[type="checkbox"] + label {
+        display: block;
+        padding: 10px 20px;
+        background-color: #cfcfc2;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .input-container input[type="checkbox"]:checked + label {
+        background-color: #7a7a6f;
+        color: white;
+    }
+    
+    
+    button {
+        background-color: #63615c;
+        color: white;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        font-family: 'Times New Roman', Times, serif, serif;
+    }
+    
+    button:hover {
+        background-color: #45a049;
+    }
+    
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Please take up the Assessment!</h1>
+    <form action="/predict3" method="post">
+        Here's the revised HTML code with all questions using radio buttons or checkboxes:
+
+```html
+<div class="input-container">
+    <label>1. In the past year, have you experienced phases of feeling unusually energetic, excited, or irritable that lasted for at least a week and significantly interfered with your daily life?</label>
+    <div>
+        <input type="radio" id="rarely_unusual_phases" name="unusual_phases" value="rarely">
+        <label for="rarely_unusual_phases">Rarely, I experience.</label>
+    </div>
+    <div>
+        <input type="radio" id="sometimes_unusual_phases" name="unusual_phases" value="sometimes">
+        <label for="sometimes_unusual_phases">Sometimes, I experience.</label>
+    </div>
+    <div>
+        <input type="radio" id="often_unusual_phases" name="unusual_phases" value="often">
+        <label for="often_unusual_phases">Often, I experience.</label>
+    </div>
+    <div>
+        <input type="radio" id="always_unusual_phases" name="unusual_phases" value="always">
+        <label for="always_unusual_phases">Always, I experience.</label>
+    </div>
+    <div>
+        <input type="radio" id="never_unusual_phases" name="unusual_phases" value="never">
+        <label for="never_unusual_phases">Never, I experience.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>2. During these phases, have you also experienced three or more of the following symptoms?</label>
+    <div>
+        <input type="checkbox" id="talkative_racing_thoughts" name="symptoms" value="talkative_racing_thoughts">
+        <label for="talkative_racing_thoughts">Feeling very talkative or racing thoughts.</label>
+    </div>
+    <div>
+        <input type="checkbox" id="less_sleep" name="symptoms" value="less_sleep">
+        <label for="less_sleep">Needing significantly less sleep than usual.</label>
+    </div>
+    <div>
+        <input type="checkbox" id="risky_behaviors" name="symptoms" value="risky_behaviors">
+        <label for="risky_behaviors">Engaging in risky or impulsive behaviors.</label>
+    </div>
+    <div>
+        <input type="checkbox" id="optimistic_self_esteem" name="symptoms" value="optimistic_self_esteem">
+        <label for="optimistic_self_esteem">Feeling abnormally optimistic or inflated self-esteem.</label>
+    </div>
+    <div>
+        <input type="checkbox" id="increased_pleasurable_activities" name="symptoms" value="increased_pleasurable_activities">
+        <label for="increased_pleasurable_activities">Increased spending or involvement in pleasurable activities to a harmful extent.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>3. Have you ever experienced phases of feeling sad, hopeless, or disinterested in activities that you used to enjoy, lasting for at least two weeks and interfering with your daily life?</label>
+    <div>
+        <input type="radio" id="never_sad_phases" name="sad_phases" value="never">
+        <label for="never_sad_phases">Never, I have experienced.</label>
+    </div>
+    <div>
+        <input type="radio" id="rarely_sad_phases" name="sad_phases" value="rarely">
+        <label for="rarely_sad_phases">Rarely, I have experience.</label>
+    </div>
+    <div>
+        <input type="radio" id="always_sad_phases" name="sad_phases" value="always">
+        <label for="always_sad_phases">Always, I have experience.</label>
+    </div>
+    <div>
+        <input type="radio" id="often_sad_phases" name="sad_phases" value="often">
+        <label for="often_sad_phases">Often, I have experience.</label>
+    </div>
+    <div>
+        <input type="radio" id="sometimes_sad_phases" name="sad_phases" value="sometimes">
+        <label for="sometimes_sad_phases">Sometimes, I have experience.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>4. During these phases, have you also experienced five or more of the following symptoms?</label>
+    <div>
+        <input type="radio" id="depressed_most_of_day" name="depressive_symptoms" value="depressed_most_of_day">
+        <label for="depressed_most_of_day">Feeling depressed or down most of the day, nearly every day.</label>
+    </div>
+    <div>
+        <input type="radio" id="weight_changes" name="depressive_symptoms" value="weight_changes">
+        <label for="weight_changes">Significant changes in appetite or weight (weight loss or gain).</label>
+    </div>
+    <div>
+        <input type="radio" id="difficulty_sleeping" name="depressive_symptoms" value="difficulty_sleeping">
+        <label for="difficulty_sleeping">Difficulty sleeping or sleeping too much.</label>
+    </div>
+    <div>
+        <input type="radio" id="restless_slowed_down" name="depressive_symptoms" value="restless_slowed_down">
+        <label for="restless_slowed_down">Feeling restless or slowed down.</label>
+    </div>
+    <div>
+        <input type="radio" id="worthless_guilty" name="depressive_symptoms" value="worthless_guilty">
+        <label for="worthless_guilty">Feeling worthless or guilty.</label>
+    </div>
+    <div>
+        <input type="radio" id="difficulty_concentrating" name="depressive_symptoms" value="difficulty_concentrating">
+        <label for="difficulty_concentrating">Difficulty concentrating or making decisions.</label>
+    </div>
+    <div>
+        <input type="radio" id="thoughts_of_death" name="depressive_symptoms" value="thoughts_of_death">
+        <label for="thoughts_of_death">Thoughts of death or suicide.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>5. How would you describe your mood changes?</label>
+    <div>
+        <input type="radio" id="stable_mood" name="mood_changes" value="stable">
+        <label for="stable_mood">Consistently stable.</label>
+    </div>
+    <div>
+        <input type="radio" id="fluctuating_mood" name="mood_changes" value="fluctuating">
+        <label for="fluctuating_mood">Occasionally fluctuating.</label>
+    </div>
+    <div>
+
+
+        <input type="radio" id="drastic_mood_shifts" name="mood_changes" value="drastic_shifts">
+        <label for="drastic_mood_shifts">Drastic shifts from high to low or vice versa.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>6. How do you feel about your energy levels?</label>
+    <div>
+        <input type="radio" id="consistent_energy" name="energy_levels" value="consistent">
+        <label for="consistent_energy">Generally consistent.</label>
+    </div>
+    <div>
+        <input type="radio" id="varying_energy" name="energy_levels" value="varying">
+        <label for="varying_energy">Sometimes high, sometimes low.</label>
+    </div>
+    <div>
+        <input type="radio" id="unpredictable_energy" name="energy_levels" value="unpredictable">
+        <label for="unpredictable_energy">Extremely high or low unpredictably.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>7. How would you rate your activity level?</label>
+    <div>
+        <input type="checkbox" id="steady_activity" name="activity_level" value="steady">
+        <label for="steady_activity">Steady and moderate.</label>
+    </div>
+    <div>
+        <input type="checkbox" id="varying_activity" name="activity_level" value="varying">
+        <label for="varying_activity">Varies from time to time.</label>
+    </div>
+    <div>
+        <input type="checkbox" id="extreme_activity" name="activity_level" value="extreme">
+        <label for="extreme_activity">Alternates between extreme productivity and lethargy.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>8. How do you respond to stress or frustration?</label>
+    <div>
+        <input type="checkbox" id="manageably_stressed" name="stress_response" value="manageably_stressed">
+        <label for="manageably_stressed">Manageably.</label>
+    </div>
+    <div>
+        <input type="checkbox" id="difficulty_stressed" name="stress_response" value="difficulty_stressed">
+        <label for="difficulty_stressed">With some difficulty.</label>
+    </div>
+    <div>
+        <input type="checkbox" id="intense_stressed" name="stress_response" value="intense_stressed">
+        <label for="intense_stressed">With intense irritability or anger.</label>
+    </div>
+</div>
+```
+        
+        <button type="submit">Generate result.</button>
+    </form>
+</div>
+
+</body>
+</html>

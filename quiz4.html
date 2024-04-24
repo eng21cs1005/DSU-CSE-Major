@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Page</title>
+<style>
+    body {
+        font-family: Helvetica, serif;
+        background-color: #d6cebe;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .container {
+        max-width: 800px; /* Adjusted width for better readability */
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+        color: #333;
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif, serif;
+    }
+    
+    form {
+        margin-top: 20px;
+        font-family: 'Times New Roman', Times, serif, serif;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 10px;
+        color: #333;
+    }
+    
+    .input-container {
+        margin-bottom: 20px;
+    }
+    
+    .input-container label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .input-container input[type="radio"] {
+        display: none;
+    }
+    
+    .input-container input[type="radio"] + label {
+        display: block;
+        padding: 10px 20px;
+        background-color: #cfcfc2;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .input-container input[type="radio"]:checked + label {
+        background-color: #7a7a6f;
+        color: white;
+    }
+    
+    .input-container input[type="checkbox"] {
+        display: none;
+    }
+    
+    .input-container input[type="checkbox"] + label {
+        display: block;
+        padding: 10px 20px;
+        background-color: #cfcfc2;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .input-container input[type="checkbox"]:checked + label {
+        background-color: #7a7a6f;
+        color: white;
+    }
+    
+    
+    button {
+        background-color: #63615c;
+        color: white;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        font-family: 'Times New Roman', Times, serif, serif;
+    }
+    
+    button:hover {
+        background-color: #45a049;
+    }
+    
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Please take up the Assessment!</h1>
+    <form action="/predict4" method="post">
+        <div class="input-container">
+    <label>1. How often do you experience intrusive, unwanted thoughts that cause anxiety or distress?</label>
+    <div>
+        <input type="radio" id="rarely_never" name="intrusive_thoughts" value="rarely_never">
+        <label for="rarely_never">Rarely or never.</label>
+    </div>
+    <div>
+        <input type="radio" id="sometimes" name="intrusive_thoughts" value="sometimes">
+        <label for="sometimes">Sometimes, I experience.</label>
+    </div>
+    <div>
+        <input type="radio" id="often" name="intrusive_thoughts" value="often">
+        <label for="often">Often, I experience.</label>
+    </div>
+    <div>
+        <input type="radio" id="always" name="intrusive_thoughts" value="always">
+        <label for="always">Always, I experience.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>2. When faced with uncertainty or doubt, how often do you feel compelled to perform certain actions or rituals to alleviate anxiety?</label>
+    <div>
+        <input type="radio" id="rarely_never_actions" name="compelled_actions" value="rarely_never">
+        <label for="rarely_never_actions">Rarely or never.</label>
+    </div>
+    <div>
+        <input type="radio" id="sometimes_actions" name="compelled_actions" value="sometimes">
+        <label for="sometimes_actions">Sometimes, I experience.</label>
+    </div>
+    <div>
+        <input type="radio" id="always_actions" name="compelled_actions" value="always">
+        <label for="always_actions">Always, I experience.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>3. Do you find yourself spending excessive amounts of time on repetitive behaviors, such as counting, checking, or arranging things?</label>
+    <div>
+        <input type="radio" id="no_never_behaviors" name="repetitive_behaviors" value="no_never">
+        <label for="no_never_behaviors">No, never feel that way.</label>
+    </div>
+    <div>
+        <input type="radio" id="rarely_behaviors" name="repetitive_behaviors" value="rarely">
+        <label for="rarely_behaviors">Rarely, I have experienced.</label>
+    </div>
+    <div>
+        <input type="radio" id="yes_always_behaviors" name="repetitive_behaviors" value="yes_always">
+        <label for="yes_always_behaviors">Yes, always I have experienced.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>4. How much do your obsessive thoughts or compulsive behaviors interfere with your daily activities, work, or relationships?</label>
+    <div>
+        <input type="radio" id="not_at_all_interference" name="interference_level" value="not_at_all">
+        <label for="not_at_all_interference">Not at all.</label>
+    </div>
+    <div>
+        <input type="radio" id="sometimes_interference" name="interference_level" value="sometimes">
+        <label for="sometimes_interference">Sometimes, I feel.</label>
+    </div>
+    <div>
+        <input type="radio" id="significantly_interference" name="interference_level" value="significantly">
+        <label for="significantly_interference">Significantly, I feel.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>5. Are there specific fears or concerns (e.g., contamination, harm to oneself or others) that frequently trigger your obsessive thoughts or compulsive behaviors?</label>
+    <div>
+        <input type="radio" id="no_specific_triggers" name="specific_triggers" value="no_specific">
+        <label for="no_specific_triggers">No, not specific ones.</label>
+    </div>
+    <div>
+        <input type="radio" id="occasionally_triggers" name="specific_triggers" value="occasionally">
+        <label for="occasionally_triggers">Occasionally, but they vary.</label>
+    </div>
+    <div>
+        <input type="radio" id="yes_specific_triggers" name="specific_triggers" value="yes_specific">
+        <label for="yes_specific_triggers">Yes, there are specific themes or fears that trigger my symptoms.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>6. Have you ever tried to resist or stop engaging in your compulsions, but found it extremely difficult or distressing?</label>
+    <div>
+        <input type="radio" id="no_resist_compulsions" name="resist_compulsions" value="no_resist">
+        <label for="no_resist_compulsions">No, I haven't tried to resist.</label>
+    </div>
+    <div>
+        <input type="radio" id="somewhat_difficult_compulsions" name="resist_compulsions" value="somewhat_difficult">
+        <label for="somewhat_difficult_compulsions">Yes, but it's somewhat difficult.</label>
+    </div>
+    <div>
+        <input type="radio" id="very_difficult_compulsions" name="resist_compulsions" value="very_difficult">
+        <label for="very_difficult_compulsions">Yes, it's very difficult and distressing.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>7. How often do you feel compelled to seek reassurance from others or repeatedly seek information to alleviate your anxiety related to obsessions?</label>
+    <div>
+        <input type="radio" id="rarely_never_reassurance" name="seek_reassurance" value="rarely_never">
+        <label for="rarely_never_reassurance">Rarely, or never.</label>
+    </div>
+    <div>
+        <input type="radio" id="sometimes_reassurance" name="seek_reassurance" value="sometimes">
+        <label for="sometimes_reassurance">Sometimes, I feel.</label>
+    </div>
+    <div>
+        <input type="radio" id="often_always_reassurance" name="seek_reassurance" value="often_always">
+        <label for="often_always_reassurance">Often or Always.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>8. Have you ever sought professional help or been diagnosed with Obsessive-Compulsive Disorder (OCD) or a related condition?</label>
+    <div>
+        <input type="radio" id="no_help_diagnosed" name="professional_help" value="no_help">
+        <label for="no_help_diagnosed">No.</label>
+    </div>
+    <div>
+        <input type="radio" id="sought_help_not_diagnosed" name="professional_help" value="sought_help">
+        <label for="sought_help_not_diagnosed">Yes, I've sought help but not diagnosed.</label>
+    </div>
+    <div>
+        <input type="radio" id="diagnosed_with_ocd" name="professional_help" value="diagnosed_with_ocd">
+        <label for="diagnosed_with_ocd">Yes, I've been diagnosed with OCD or a related condition.</label>
+    </div>
+</div>
+
+
+        
+        <button type="submit">Generate result.</button>
+    </form>
+</div>
+
+</body>
+</html>

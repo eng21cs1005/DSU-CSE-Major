@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Page</title>
+<style>
+    body {
+        font-family: Helvetica, serif;
+        background-color: #d6cebe;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .container {
+        max-width: 800px; /* Adjusted width for better readability */
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+        color: #333;
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif, serif;
+    }
+    
+    form {
+        margin-top: 20px;
+        font-family: 'Times New Roman', Times, serif, serif;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 10px;
+        color: #333;
+    }
+    
+    .input-container {
+        margin-bottom: 20px;
+    }
+    
+    .input-container label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .input-container input[type="radio"] {
+        display: none;
+    }
+    
+    .input-container input[type="radio"] + label {
+        display: block;
+        padding: 10px 20px;
+        background-color: #cfcfc2;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .input-container input[type="radio"]:checked + label {
+        background-color: #7a7a6f;
+        color: white;
+    }
+    
+    .input-container input[type="checkbox"] {
+        display: none;
+    }
+    
+    .input-container input[type="checkbox"] + label {
+        display: block;
+        padding: 10px 20px;
+        background-color: #cfcfc2;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .input-container input[type="checkbox"]:checked + label {
+        background-color: #7a7a6f;
+        color: white;
+    }
+    
+    
+    button {
+        background-color: #63615c;
+        color: white;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        font-family: 'Times New Roman', Times, serif, serif;
+    }
+    
+    button:hover {
+        background-color: #45a049;
+    }
+    
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Please take up the Assessment!</h1>
+    <form action="/predict2" method="post">
+        <div class="input-container">
+    <label>1. How often have you experienced a persistent feeling of sadness or emptiness over the past two weeks?</label>
+    <div>
+        <input type="radio" id="rarely_never_sadness" name="sadness_feeling" value="rarely_never">
+        <label for="rarely_never_sadness">Rarely, or none of the time I experience.</label>
+    </div>
+    <div>
+        <input type="radio" id="somedays_sadness" name="sadness_feeling" value="somedays">
+        <label for="somedays_sadness">Somedays, I experience.</label>
+    </div>
+    <div>
+        <input type="radio" id="most_days_sadness" name="sadness_feeling" value="most_days">
+        <label for="most_days_sadness">Most days, I experience.</label>
+    </div>
+    <div>
+        <input type="radio" id="everyday_sadness" name="sadness_feeling" value="everyday">
+        <label for="everyday_sadness">Everyday, I experience.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>2. Have you lost interest or pleasure in activities you once enjoyed, such as hobbies or spending time with friends and family?</label>
+    <div>
+        <input type="radio" id="not_at_all_interest" name="lost_interest" value="not_at_all">
+        <label for="not_at_all_interest">Not at all.</label>
+    </div>
+    <div>
+        <input type="radio" id="occasionally_interest" name="lost_interest" value="occasionally">
+        <label for="occasionally_interest">Occasionally, I experience.</label>
+    </div>
+    <div>
+        <input type="radio" id="frequently_interest" name="lost_interest" value="frequently">
+        <label for="frequently_interest">Frequently, I experience.</label>
+    </div>
+    <div>
+        <input type="radio" id="almost_always_interest" name="lost_interest" value="almost_always">
+        <label for="almost_always_interest">Almost always, I experience.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>3. Do you experience changes in your appetite or weight, such as significant weight loss or weight gain without trying?</label>
+    <div>
+        <input type="radio" id="no_changes_appetite" name="appetite_weight_changes" value="no_changes">
+        <label for="no_changes_appetite">No changes in weight.</label>
+    </div>
+    <div>
+        <input type="radio" id="minor_changes_appetite" name="appetite_weight_changes" value="minor_changes">
+        <label for="minor_changes_appetite">Minor changes in weight.</label>
+    </div>
+    <div>
+        <input type="radio" id="moderate_changes_appetite" name="appetite_weight_changes" value="moderate_changes">
+        <label for="moderate_changes_appetite">Moderate changes in weight.</label>
+    </div>
+    <div>
+        <input type="radio" id="significant_changes_appetite" name="appetite_weight_changes" value="significant_changes">
+        <label for="significant_changes_appetite">Significant changes in weight.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>4. How often do you have trouble sleeping, whether it's difficulty falling asleep, staying asleep, or sleeping too much?</label>
+    <div>
+        <input type="radio" id="rarely_never_sleeping" name="trouble_sleeping" value="rarely_never">
+        <label for="rarely_never_sleeping">Rarely or Never.</label>
+    </div>
+    <div>
+        <input type="radio" id="occasionally_sleeping" name="trouble_sleeping" value="occasionally">
+        <label for="occasionally_sleeping">Occasionally, I feel.</label>
+    </div>
+    <div>
+        <input type="radio" id="most_nights_sleeping" name="trouble_sleeping" value="most_nights">
+        <label for="most_nights_sleeping">Most of the nights.</label>
+    </div>
+    <div>
+        <input type="radio" id="every_night_sleeping" name="trouble_sleeping" value="every_night">
+        <label for="every_night_sleeping">Always, Every night.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>5. Do you often feel fatigued or have a lack of energy, even after getting enough rest?</label>
+    <div>
+        <input type="radio" id="rarely_fatigued" name="fatigue_energy" value="rarely">
+        <label for="rarely_fatigued">Rarely, I feel.</label>
+    </div>
+    <div>
+        <input type="radio" id="sometimes_fatigued" name="fatigue_energy" value="sometimes">
+        <label for="sometimes_fatigued">Sometimes, I feel.</label>
+    </div>
+    <div>
+        <input type="radio" id="often_fatigued" name="fatigue_energy" value="often">
+        <label for="often_fatigued">Often, I feel.</label>
+    </div>
+    <div>
+        <input type="radio" id="constantly_fatigued" name="fatigue_energy" value="constantly">
+        <label for="constantly_fatigued">Constantly, I feel.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>6. Have you noticed changes in your ability to concentrate, make decisions, or remember things?</label>
+    <div>
+        <input type="radio" id="no_changes_concentration" name="concentration_changes" value="no_changes">
+        <label for="no_changes_concentration">No changes.</label>
+    </div>
+    <div>
+        <input type="radio" id="minor_changes_concentration" name="concentration_changes" value="minor_changes">
+        <label for="minor_changes_concentration">Minor changes.</label>
+    </div>
+    <div>
+        <input type="radio" id="moderate_changes_concentration" name="concentration_changes" value="moderate_changes">
+        <label for="moderate_changes_concentration">Moderate changes.</label>
+    </div>
+    <div>
+        <input type="radio" id="significant_changes_concentration" name="concentration_changes" value="significant_changes">
+        <label for="significant_changes_concentration">Significant changes.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>7. How frequently do you experience feelings of worthlessness or excessive guilt?</label>
+    <div>
+        <input type="radio" id="often_worthlessness" name="worthlessness_guilt" value="often">
+        <label for="often_worthlessness">Often, I experience.</label>
+    </div>
+    <div>
+        <input type="radio" id="rarely_never_worthlessness" name="worthlessness_guilt" value="rarely_never">
+        <label for="rarely_never_worthlessness">Rarely, or never I experience.</label>
+    </div>
+    <div>
+        <input type="radio" id="always_worthlessness" name="worthlessness_guilt" value="always">
+        <label for="always_worthlessness">Always, I experience.</label>
+    </div>
+    <div>
+        <input type="radio" id="occasionally_worthlessness" name="worthlessness_guilt" value="occasionally">
+        <label for="occasionally_worthlessness">Occasionally, I experience.</label>
+    </div>
+</div>
+
+<div class="input-container">
+    <label>8. Have you had thoughts of death or suicide, or have you attempted suicide?</label>
+    <div>
+        <input type="radio" id="rarely_death_thoughts" name="death_suicide_thoughts" value="rarely">
+        <label for="rarely_death_thoughts">Rarely, I have thought.</label>
+    </div>
+    <div>
+        <input type="radio" id="never_death_thoughts" name="death_suicide_thoughts" value="never">
+        <label for="never_death_thoughts">Never, I have thought.</label>
+    </div>
+    <div>
+        <input type="radio" id="frequently_death_thoughts" name="death_suicide_thoughts" value="frequently">
+        <label for="frequently_death_thoughts">Frequently, I have thought.</label>
+    </div>
+    <div>
+        <input type="radio" id="sometimes_death_thoughts" name="death_suicide_thoughts" value="sometimes">
+        <label for="sometimes_death_thoughts">Sometimes, I have thought.</label>
+    </div>
+</div>
+
+
+        
+        <button type="submit">Generate result.</button>
+    </form>
+</div>
+
+</body>
+</html>
